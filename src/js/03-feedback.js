@@ -6,13 +6,10 @@ const message = document.querySelector('.feedback-form textarea');
 form.addEventListener('input', throttle(onFormInput, 500));
 form.addEventListener('submit', onFormSubmit);
 
+let userForm = {}
 function onFormInput(e) {
-  let { email, message } = e.currentTarget.elements;
-
-  let userForm = {
-    email: email.value,
-    message: message.value,
-  };
+  userForm[e.target.name] = e.target.value;
+  
 
   localStorage.setItem('feedback-form-state', JSON.stringify(userForm));
 }
