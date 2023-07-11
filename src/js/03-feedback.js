@@ -18,8 +18,8 @@ function saveUserLocal(e) {
   const saveUser = JSON.parse(localStorage.getItem('feedback-form-state'));
 
   if (saveUser) {
-    message.value = saveUser.message;
-    email.value = saveUser.email;
+    message.value = saveUser.message || "";
+    email.value = saveUser.email || "";
   }
 }
 
