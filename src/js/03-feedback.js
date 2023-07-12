@@ -6,7 +6,7 @@ const message = document.querySelector('.feedback-form textarea');
 form.addEventListener('input', throttle(onFormInput, 500));
 form.addEventListener('submit', onFormSubmit);
 
-
+let userForm = {}
 function onFormInput(e) {
  userForm = {
   email: email.value,
