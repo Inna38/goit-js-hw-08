@@ -6,10 +6,12 @@ const message = document.querySelector('.feedback-form textarea');
 form.addEventListener('input', throttle(onFormInput, 500));
 form.addEventListener('submit', onFormSubmit);
 
-let userForm = {}
+
 function onFormInput(e) {
-  userForm[e.target.name] = e.target.value;
-  
+ userForm = {
+  email: email.value,
+  message: message.value,
+}
 
   localStorage.setItem('feedback-form-state', JSON.stringify(userForm));
 }
@@ -18,8 +20,8 @@ function saveUserLocal(e) {
   const saveUser = JSON.parse(localStorage.getItem('feedback-form-state'));
 
   if (saveUser) {
-    message.value = saveUser.message || "";
-    email.value = saveUser.email || "";
+    message.value = saveUser.message ;
+    email.value = saveUser.email ;
   }
 }
 
